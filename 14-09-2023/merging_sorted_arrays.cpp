@@ -2,11 +2,17 @@
 using namespace std;
 
 int main(){
-	int a[] = {1,3,5,9,10};
-	int n = sizeof(a)/sizeof(int);
-	int b[] = {4,7,9,11,13,17};
-	int m = sizeof(a)/sizeof(int);
-	int out[100];
+	int a[100000],b[100000],out[100000];
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++){
+		cin>>a[i];
+	}
+	int m;
+	cin>>m;
+	for(int i=0;i<m;i++){
+		cin>>b[i];
+	}
 	int i=0,j=0,k=0;
 	while(i<n and j<m){
 		if(a[i]>b[j]){
