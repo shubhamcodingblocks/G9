@@ -1,14 +1,16 @@
 #include<iostream>
 using namespace std;
 
-class Printer;
-
 class Student{
 private:
 	char name[100];
 	int roll_no;
 public:
-	friend void Printer::print_details(Student);
+	Student(char *n,int r){
+		strcpy(name,n);
+		roll_no = r;
+	}
+	friend class Printer; // class declared as friend 
 };
 
 
@@ -20,6 +22,8 @@ public:
 };
 
 int main(){
-	
+	Printer p;
+	Student s("abc",123);
+	p.print_details(s);
 	return 0;
 }
