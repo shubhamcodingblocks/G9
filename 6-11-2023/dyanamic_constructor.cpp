@@ -4,16 +4,19 @@ using namespace std;
 class Car{
 public:
 	char *name;
-	int price;
-	int mileage;
-	int seats;
+	int * price;
+	int * mileage;
+	int * seats;
 
 	Car(char* n,int p,int m,int s){ // constructor
 		name = new char[strlen(n)+1];
 		strcpy(name,n);
-		price = p;
-		mileage = m;
-		seats = s;
+		price = new int;
+		mileage = new int;
+		seats = new int;
+		*price = p;
+		*mileage = m;
+		*seats = s;
 	}
 
 	Car(Car &X){								// deep copy
@@ -34,9 +37,9 @@ public:
 
 	void display(){
 		cout << "name: " << name <<endl;
-		cout << "price: " << price <<endl;
-		cout << "mileage: " << mileage <<endl;
-		cout << "seats: " << seats <<endl;
+		cout << "price: " << *price <<endl;
+		cout << "mileage: " << *mileage <<endl;
+		cout << "seats: " << *seats <<endl;
 		cout << endl;
 	}
 
@@ -52,7 +55,6 @@ int main(){
 	Car D = C;
 	Car E(C);
 	E.name[0] = 'A';
-	E.price = 200;
 	C.display();
 	D.display();
 	E.display();
